@@ -1,0 +1,284 @@
+/** @import must precede all other statements */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /**
+   * Tailwind CSS theme - IoT Centre of Group 4
+   * Purple-blue gradients with soft white backgrounds
+   */
+  :root {
+    /* Background & Text */
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* Primary - Deep Purple/Blue */
+    --primary: 260 80% 56%;
+    --primary-foreground: 210 40% 98%;
+    --primary-50: 260 80% 95%;
+    --primary-100: 260 80% 90%;
+    --primary-200: 260 80% 80%;
+    --primary-300: 260 80% 70%;
+    --primary-400: 260 80% 62%;
+    --primary-500: 260 80% 56%;
+    --primary-600: 260 80% 46%;
+
+    /* Secondary - Light Blue/Cyan */
+    --secondary: 200 100% 72%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary-50: 200 100% 97%;
+    --secondary-100: 200 100% 90%;
+    --secondary-200: 200 100% 80%;
+    --secondary-300: 200 100% 72%;
+
+    /* Accent */
+    --accent: 260 80% 56%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Muted */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Border & Input */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 260 80% 56%;
+
+    /* Radius */
+    --radius: 0.75rem;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 260 80% 56%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 260 80% 56%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 217.2 32.6% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217.2 32.6% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 200 100% 72%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 200 100% 72%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 70%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 20%;
+    --input: 217.2 32.6% 20%;
+    --ring: 200 100% 72%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 200 100% 72%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 200 100% 72%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+  }
+
+  :where(p, span, li, h1, h2, h3, h4, h5, h6, a, button, label, td, th) {
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  pre,
+  code {
+    overflow-x: auto;
+    white-space: pre;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply py-16 px-4 md:py-24 md:px-6 lg:py-32;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4;
+  }
+
+  .section-description {
+    @apply text-base md:text-lg text-muted-foreground max-w-2xl mx-auto;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-soft-lg hover:-translate-y-1;
+  }
+
+  .smooth-scroll {
+    scroll-behavior: smooth;
+  }
+
+  .bg-gradient-soft {
+    background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--secondary-50)) 100%);
+  }
+
+  .dark .bg-gradient-soft {
+    background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--secondary)) 100%);
+  }
+
+  .glow-border {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.1);
+  }
+
+  /* Terminal Loader Styles */
+  @keyframes blinkCursor {
+    50% {
+      border-right-color: transparent;
+    }
+  }
+
+  @keyframes typeAndDelete {
+    0%,
+    10% {
+      width: 0;
+    }
+    45%,
+    55% {
+      width: 6.2em;
+    }
+    90%,
+    100% {
+      width: 0;
+    }
+  }
+
+  .terminal-loader {
+    border: 0.1em solid hsl(var(--border));
+    background-color: hsl(var(--card));
+    color: hsl(210, 100%, 60%);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1em;
+    padding: 1.5em 1em;
+    width: 12em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  .dark .terminal-loader {
+    border-color: hsl(var(--border));
+    background-color: hsl(0, 0%, 10%);
+    color: hsl(210, 100%, 60%);
+  }
+
+  .terminal-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1.5em;
+    background-color: hsl(var(--muted));
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    padding: 0 0.4em;
+    box-sizing: border-box;
+  }
+
+  .dark .terminal-header {
+    background-color: hsl(0, 0%, 20%);
+  }
+
+  .terminal-controls {
+    float: right;
+  }
+
+  .control {
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    margin-left: 0.4em;
+    border-radius: 50%;
+    background-color: hsl(var(--muted-foreground));
+  }
+
+  .control.close {
+    background-color: #e33;
+  }
+
+  .control.minimize {
+    background-color: #ee0;
+  }
+
+  .control.maximize {
+    background-color: #0b0;
+  }
+
+  .terminal-title {
+    float: left;
+    line-height: 1.5em;
+    color: hsl(var(--foreground));
+  }
+
+  .text {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.2em solid hsl(210, 100%, 60%);
+    animation:
+      typeAndDelete 4s steps(11) infinite,
+      blinkCursor 0.5s step-end infinite alternate;
+    margin-top: 1.5em;
+  }
+}
